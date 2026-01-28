@@ -430,20 +430,23 @@ function App() {
             </p>
           </motion.div>
           
-          <motion.form
+          <motion.form action="https://api.web3forms.com/submit" method="POST" data-patch-version="v20" 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            onSubmit={handleSubmit}
+            data-onsubmit="disabled"
             className="space-y-6"
           >
+              <input type="hidden" name="access_key" value="649307c8-af39-4b58-b850-e92ef3bb6b82" />
+              <input type="hidden" name="from_name" value="AI Project [v20]" />
+              <input type="hidden" name="subject" value="New Application from Website" />
             <div className="grid md:grid-cols-2 gap-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
                   Name
                 </label>
-                <input
+                <input name="name" 
                   type="text"
                   id="name"
                   required
@@ -458,7 +461,7 @@ function App() {
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
                   Email
                 </label>
-                <input
+                <input name="email" 
                   type="email"
                   id="email"
                   required
@@ -474,7 +477,7 @@ function App() {
               <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
                 Message
               </label>
-              <textarea
+              <textarea name="message" 
                 id="message"
                 required
                 rows="6"
